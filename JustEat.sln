@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustEat", "JustEat\JustEat.csproj", "{8230124E-3E84-4269-9D84-98068BA1ED7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8230124E-3E84-4269-9D84-98068BA1ED7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8230124E-3E84-4269-9D84-98068BA1ED7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8230124E-3E84-4269-9D84-98068BA1ED7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8230124E-3E84-4269-9D84-98068BA1ED7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89009D2B-27D4-49C6-A4B7-9EE5003EC495}
+	EndGlobalSection
+EndGlobal

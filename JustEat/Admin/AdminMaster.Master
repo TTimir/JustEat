@@ -24,6 +24,28 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/jquery.mCustomScrollbar.css">
+
+    <!-- DataTables CSS -->
+    <link href="../assets/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../assets/datatables/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../assets/datatables/css/icon-font.min.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="../assets/js/jquery/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            //get full url
+            var url = window.location.href;
+
+            //passed on every a tag
+            $("navbarSupportedContent a").each(function () {
+                if (url == (this.href)) {
+                    $(this).closest("li").addClass("active");
+                }
+            })
+        })
+    </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -79,9 +101,9 @@
                             <a class="mobile-menu" id="mobile-collapse" href="#!">
                                 <i class="ti-menu"></i>
                             </a>
-                            <a class="mobile-search morphsearch-search" href="#">
+                            <%--<a class="mobile-search morphsearch-search" href="#">
                                 <i class="ti-search"></i>
-                            </a>
+                            </a>--%>
                             <a href="index.html">
                                 <img class="img-fluid" src="../assets/images/logo.png" alt="Theme-Logo" />
                             </a>
@@ -103,48 +125,6 @@
                                 </li>
                             </ul>
                             <ul class="nav-right">
-                                <li class="header-notification">
-                                    <a href="#!">
-                                        <i class="ti-bell"></i>
-                                        <span class="badge bg-c-pink"></span>
-                                    </a>
-                                    <ul class="show-notification">
-                                        <li>
-                                            <h6>Notifications</h6>
-                                            <label class="label label-danger">New</label>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="../assets/images/avatar-4.jpg" alt="Generic placeholder image">
-                                                <div class="media-body">
-                                                    <h5 class="notification-user">John Doe</h5>
-                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                    <span class="notification-time">30 minutes ago</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="../assets/images/avatar-3.jpg" alt="Generic placeholder image">
-                                                <div class="media-body">
-                                                    <h5 class="notification-user">Joseph William</h5>
-                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                    <span class="notification-time">30 minutes ago</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="../assets/images/avatar-4.jpg" alt="Generic placeholder image">
-                                                <div class="media-body">
-                                                    <h5 class="notification-user">Sara Soudein</h5>
-                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                    <span class="notification-time">30 minutes ago</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
                                 <li class="user-profile header-notification">
                                     <a href="#!">
                                         <img src="../assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
@@ -152,7 +132,7 @@
                                         <i class="ti-angle-down"></i>
                                     </a>
                                     <ul class="show-notification profile-notification">
-                                        <li>
+                                        <%--<li>
                                             <a href="#!">
                                                 <i class="ti-settings"></i>Settings
                                             </a>
@@ -171,7 +151,7 @@
                                             <a href="#">
                                                 <i class="ti-lock"></i>Lock Screen
                                             </a>
-                                        </li>
+                                        </li>--%>
                                         <li>
                                             <a href="auth-normal-sign-in.html">
                                                 <i class="ti-layout-sidebar-left"></i>Logout
@@ -187,8 +167,8 @@
                     <div class="pcoded-wrapper">
                         <nav class="pcoded-navbar">
                             <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
-                            <div class="pcoded-inner-navbar main-menu">
-                                <div class="">
+                            <div class="pcoded-inner-navbar main-menu" id="navbarSupportedContent">
+                                <%--<div class="">
                                     <div class="main-menu-header">
                                         <img class="img-40 img-radius" src="../assets/images/avatar-4.jpg" alt="User-Profile-Image">
                                         <div class="user-details">
@@ -206,24 +186,24 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
-                                <div class="pcoded-search">
+                                </div>--%>
+                                <%--<div class="pcoded-search">
                                     <span class="searchbar-toggle"></span>
                                     <div class="pcoded-search-box ">
                                         <input type="text" placeholder="Search">
                                         <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
                                     </div>
-                                </div>
-                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
+                                </div>--%>
+                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Overview</div>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="active">
-                                        <a href="index.html">
+                                    <li>
+                                        <a href="Dashboard.aspx">
                                             <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                    <li class="pcoded-hasmenu">
+                                    <%-- <li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)">
                                             <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Components</span>
@@ -302,44 +282,36 @@
                                             </li>
 
                                         </ul>
-                                    </li>
+                                    </li>--%>
                                 </ul>
-                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms &amp; Tables</div>
+                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Category Operations</div>
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li>
-                                        <a href="form-elements-component.html">
+                                        <a href="Category.aspx">
                                             <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Form Components</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Categories</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="bs-basic-table.html">
-                                            <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Basic Table</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-
                                 </ul>
 
-                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
+                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Product Operations</div>
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li>
                                         <a href="chart.html">
                                             <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Products</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="map-google.html">
                                             <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Maps</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Update Delivery Status</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                    <li class="pcoded-hasmenu">
+                                    <%--<li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)">
                                             <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Pages</span>
@@ -368,441 +340,94 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </li>
-
+                                    </li>--%>
                                 </ul>
 
-                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">Other</div>
+                                <%--<div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">Product Delivery Status</div>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="pcoded-hasmenu ">
-                                        <a href="javascript:void(0)">
+                                    <li>
+                                        <a href="#!">
                                             <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Menu Levels</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Update Status</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class="">
-                                                <a href="javascript:void(0)">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Menu Level 2.1</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class="pcoded-hasmenu ">
-                                                <a href="javascript:void(0)">
-                                                    <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.main">Menu Level 2.2</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class="">
-                                                        <a href="javascript:void(0)">
-                                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Menu Level 3.1</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="">
-                                                <a href="javascript:void(0)">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-23">Menu Level 2.3</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
+                                    </li>
+                                </ul>--%>
 
-                                        </ul>
+                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">User's</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li>
+                                        <a href="#!">
+                                            <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Users List</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!">
+                                            <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Contact (Feedback/Query)</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <%--<div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">User's Feedback/Query</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li>
+                                        <a href="#!">
+                                            <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Contact</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                </ul>--%>
+
+                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">Report</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li>
+                                        <a href="#!">
+                                            <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Selling Report</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </nav>
                         <div class="pcoded-content">
-                            <div class="pcoded-inner-content">
-                                <div class="main-body">
-                                    <div class="page-wrapper">
-
-                                        <div class="page-body">
-                                            <div class="row">
-                                                <!-- card1 start -->
-                                                <div class="col-md-6 col-xl-3">
-                                                    <div class="card widget-card-1">
-                                                        <div class="card-block-small">
-                                                            <i class="icofont icofont-pie-chart bg-c-blue card1-icon"></i>
-                                                            <span class="text-c-blue f-w-600">Use space</span>
-                                                            <h4>49/50GB</h4>
-                                                            <div>
-                                                                <span class="f-left m-t-10 text-muted">
-                                                                    <i class="text-c-blue f-16 icofont icofont-warning m-r-10"></i>Get more space
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- card1 end -->
-                                                <!-- card1 start -->
-                                                <div class="col-md-6 col-xl-3">
-                                                    <div class="card widget-card-1">
-                                                        <div class="card-block-small">
-                                                            <i class="icofont icofont-ui-home bg-c-pink card1-icon"></i>
-                                                            <span class="text-c-pink f-w-600">Revenue</span>
-                                                            <h4>$23,589</h4>
-                                                            <div>
-                                                                <span class="f-left m-t-10 text-muted">
-                                                                    <i class="text-c-pink f-16 icofont icofont-calendar m-r-10"></i>Last 24 hours
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- card1 end -->
-                                                <!-- card1 start -->
-                                                <div class="col-md-6 col-xl-3">
-                                                    <div class="card widget-card-1">
-                                                        <div class="card-block-small">
-                                                            <i class="icofont icofont-warning-alt bg-c-green card1-icon"></i>
-                                                            <span class="text-c-green f-w-600">Fixed issue</span>
-                                                            <h4>45</h4>
-                                                            <div>
-                                                                <span class="f-left m-t-10 text-muted">
-                                                                    <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>Tracked via microsoft
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- card1 end -->
-                                                <!-- card1 start -->
-                                                <div class="col-md-6 col-xl-3">
-                                                    <div class="card widget-card-1">
-                                                        <div class="card-block-small">
-                                                            <i class="icofont icofont-social-twitter bg-c-yellow card1-icon"></i>
-                                                            <span class="text-c-yellow f-w-600">Followers</span>
-                                                            <h4>+562</h4>
-                                                            <div>
-                                                                <span class="f-left m-t-10 text-muted">
-                                                                    <i class="text-c-yellow f-16 icofont icofont-refresh m-r-10"></i>Just update
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- card1 end -->
-                                                <!-- Statestics Start -->
-                                                <div class="col-md-12 col-xl-8">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h5>Statestics</h5>
-                                                            <div class="card-header-left ">
-                                                            </div>
-                                                            <div class="card-header-right">
-                                                                <ul class="list-unstyled card-option">
-                                                                    <li><i class="icofont icofont-simple-left "></i></li>
-                                                                    <li><i class="icofont icofont-maximize full-card"></i></li>
-                                                                    <li><i class="icofont icofont-minus minimize-card"></i></li>
-                                                                    <li><i class="icofont icofont-refresh reload-card"></i></li>
-                                                                    <li><i class="icofont icofont-error close-card"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-block">
-                                                            <div id="statestics-chart" style="height: 517px;"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-
-                                                <div class="col-md-12 col-xl-4">
-                                                    <div class="card fb-card">
-                                                        <div class="card-header">
-                                                            <i class="icofont icofont-social-facebook"></i>
-                                                            <div class="d-inline-block">
-                                                                <h5>facebook</h5>
-                                                                <span>blog page timeline</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-block text-center">
-                                                            <div class="row">
-                                                                <div class="col-6 b-r-default">
-                                                                    <h2>23</h2>
-                                                                    <p class="text-muted">Active</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <h2>23</h2>
-                                                                    <p class="text-muted">Comment</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card dribble-card">
-                                                        <div class="card-header">
-                                                            <i class="icofont icofont-social-dribbble"></i>
-                                                            <div class="d-inline-block">
-                                                                <h5>dribble</h5>
-                                                                <span>Product page analysis</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-block text-center">
-                                                            <div class="row">
-                                                                <div class="col-6 b-r-default">
-                                                                    <h2>23</h2>
-                                                                    <p class="text-muted">Live</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <h2>23</h2>
-                                                                    <p class="text-muted">Message</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card twitter-card">
-                                                        <div class="card-header">
-                                                            <i class="icofont icofont-social-twitter"></i>
-                                                            <div class="d-inline-block">
-                                                                <h5>twitter</h5>
-                                                                <span>current new timeline</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-block text-center">
-                                                            <div class="row">
-                                                                <div class="col-6 b-r-default">
-                                                                    <h2>25</h2>
-                                                                    <p class="text-muted">new tweet</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <h2>450+</h2>
-                                                                    <p class="text-muted">Follower</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Email Sent End -->
-                                                <!-- Data widget start -->
-                                                <div class="col-md-12 col-xl-6">
-                                                    <div class="card project-task">
-                                                        <div class="card-header">
-                                                            <div class="card-header-left ">
-                                                                <h5>Time spent : project &amp; task</h5>
-                                                            </div>
-                                                            <div class="card-header-right">
-                                                                <ul class="list-unstyled card-option">
-                                                                    <li><i class="icofont icofont-simple-left "></i></li>
-                                                                    <li><i class="icofont icofont-maximize full-card"></i></li>
-                                                                    <li><i class="icofont icofont-minus minimize-card"></i></li>
-                                                                    <li><i class="icofont icofont-refresh reload-card"></i></li>
-                                                                    <li><i class="icofont icofont-error close-card"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-block p-b-10">
-                                                            <div class="table-responsive">
-                                                                <table class="table table-hover">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>Project & Task</th>
-                                                                            <th>Time Spents</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div class="task-contain">
-                                                                                    <h6 class="bg-c-blue d-inline-block text-center">U</h6>
-                                                                                    <p class="d-inline-block m-l-20">UI Design</p>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <p class="d-inline-block m-r-20">4 : 36</p>
-                                                                                <div class="progress d-inline-block">
-                                                                                    <div class="progress-bar bg-c-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div class="task-contain">
-                                                                                    <h6 class="bg-c-pink d-inline-block text-center">R</h6>
-                                                                                    <p class="d-inline-block m-l-20">Redesign Android App</p>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <p class="d-inline-block m-r-20">4 : 36</p>
-                                                                                <div class="progress d-inline-block">
-                                                                                    <div class="progress-bar bg-c-pink" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div class="task-contain">
-                                                                                    <h6 class="bg-c-yellow d-inline-block text-center">L</h6>
-                                                                                    <p class="d-inline-block m-l-20">Logo Design</p>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <p class="d-inline-block m-r-20">4 : 36</p>
-                                                                                <div class="progress d-inline-block">
-                                                                                    <div class="progress-bar bg-c-yellow" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div class="task-contain">
-                                                                                    <h6 class="bg-c-green d-inline-block text-center">A</h6>
-                                                                                    <p class="d-inline-block m-l-20">Appestia landing Page</p>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <p class="d-inline-block m-r-20">4 : 36</p>
-                                                                                <div class="progress d-inline-block">
-                                                                                    <div class="progress-bar bg-c-green" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div class="task-contain">
-                                                                                    <h6 class="bg-c-blue d-inline-block text-center">L</h6>
-                                                                                    <p class="d-inline-block m-l-20">Logo Design</p>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <p class="d-inline-block m-r-20">4 : 36</p>
-                                                                                <div class="progress d-inline-block">
-                                                                                    <div class="progress-bar bg-c-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 col-xl-6">
-                                                    <div class="card add-task-card">
-                                                        <div class="card-header">
-                                                            <div class="card-header-left">
-                                                                <h5>To do list</h5>
-                                                            </div>
-                                                            <div class="card-header-right">
-                                                                <button class="btn btn-card btn-primary">Add task </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-block">
-                                                            <div class="to-do-list">
-                                                                <div class="checkbox-fade fade-in-primary d-block">
-                                                                    <label class="check-task d-block">
-                                                                        <input type="checkbox" value="">
-                                                                        <span class="cr">
-                                                                            <i class="cr-icon icofont icofont-ui-check txt-default"></i>
-                                                                        </span>
-                                                                        <span>
-                                                                            <h6>Schedule Meeting with Compnes <span class="label bg-c-green m-l-10 f-10">2 week</span></h6>
-                                                                        </span>
-                                                                        <div class="task-card-img m-l-40">
-                                                                            <a href="#!">
-                                                                                <img src="../assets/images/avatar-2.jpg" data-toggle="tooltip" title="Lary Doe" alt="" class="img-40"></a>
-                                                                            <a href="#!">
-                                                                                <img src="../assets/images/avatar-3.jpg" data-toggle="tooltip" title="Alia" alt="" class="img-40 m-l-10"></a>
-                                                                        </div>
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="to-do-list">
-                                                                <div class="checkbox-fade fade-in-primary d-block">
-                                                                    <label class="check-task d-block">
-                                                                        <input type="checkbox" value="">
-                                                                        <span class="cr">
-                                                                            <i class="cr-icon icofont icofont-ui-check txt-default"></i>
-                                                                        </span>
-                                                                        <span>
-                                                                            <h6>Meeting With HOD's and borad</h6>
-                                                                            <p class="text-muted m-l-40">23 january 2003</p>
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="to-do-list">
-                                                                <div class="checkbox-fade fade-in-primary d-block">
-                                                                    <label class="check-task d-block">
-                                                                        <input type="checkbox" value="">
-                                                                        <span class="cr">
-                                                                            <i class="cr-icon icofont icofont-ui-check txt-default"></i>
-                                                                        </span>
-                                                                        <span>
-                                                                            <h6>Create template, admin with responsive<span class="label bg-c-pink m-l-10">2 week</span></h6>
-                                                                        </span>
-                                                                        <div class="task-card-img m-l-40">
-                                                                            <a href="#!">
-                                                                                <img src="../assets/images/avatar-2.jpg" data-toggle="tooltip" title="Alia" alt="" class="img-40"></a>
-                                                                            <a href="#!">
-                                                                                <img src="../assets/images/avatar-3.jpg" data-toggle="tooltip" title="Suzen" alt="" class="img-40 m-l-10"></a>
-                                                                            <a href="#!">
-                                                                                <img src="../assets/images/avatar-4.jpg" data-toggle="tooltip" title="Lary Doe" alt="" class="img-40 m-l-10"></a>
-                                                                            <a href="#!">
-                                                                                <img src="../assets/images/avatar-2.jpg" data-toggle="tooltip" title="Josephin Doe" alt="" class="img-40 m-l-10"></a>
-                                                                        </div>
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="to-do-list">
-                                                                <div class="checkbox-fade fade-in-primary d-block">
-                                                                    <label class="check-task d-block">
-                                                                        <input type="checkbox" value="">
-                                                                        <span class="cr">
-                                                                            <i class="cr-icon icofont icofont-ui-check txt-default"></i>
-                                                                        </span>
-                                                                        <span>
-                                                                            <h6>Meeting With HOD's and borad</h6>
-                                                                            <p class="text-muted m-l-40">23 january 2003</p>
-                                                                        </span>
-                                                                        <div class="task-card-img m-l-40">
-                                                                            <a href="#!">
-                                                                                <img src="../assets/images/avatar-2.jpg" data-toggle="tooltip" title="Lary Doe" alt="" class="img-40"></a>
-                                                                            <a href="#!">
-                                                                                <img src="../assets/images/avatar-3.jpg" data-toggle="tooltip" title="Alia" alt="" class="img-40 m-l-10"></a>
-                                                                            <a href="#!">
-                                                                                <img src="../assets/images/avatar-2.jpg" data-toggle="tooltip" title="Josephin Doe" alt="" class="img-40 m-l-10"></a>
-                                                                        </div>
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Data widget End -->
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div id="styleSelector">
+                            <!-- Danger-color Breadcrumb card start -->
+                            <div class="card borderless-card">
+                                <div class="card-block danger-breadcrumb">
+                                    <div class="page-header-breadcrumb">
+                                        <ul class="breadcrumb-title">
+                                            <li class="breadcrumb-item">
+                                                <a href="#!">
+                                                    <i class="icofont icofont-home"></i>
+                                                </a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a href="#!"><%Response.Write(Session["breadCrum"]); %></a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Danger-color Breadcrumb card end -->
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
                         </div>
                     </div>
                 </div>
 
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
             </div>
         </div>
 
     </form>
 
     <!-- Required Jquery -->
-    <script type="text/javascript" src="../assets/js/jquery/jquery.min.js"></script>
+    <%--<script type="text/javascript" src="../assets/js/jquery/jquery.min.js"></script>--%>
     <script type="text/javascript" src="../assets/js/jquery-ui/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../assets/js/popper.js/popper.min.js"></script>
     <script type="text/javascript" src="../assets/js/bootstrap/js/bootstrap.min.js"></script>
@@ -834,5 +459,24 @@
             }
         });
     </script>
+
+    <!-- DataTables JavaScript -->
+    <script src="../assets/datatables/js/jquery.dataTables.min.js"></script>
+
+    <!-- Responsive extension JavaScript -->
+    <script src="../assets/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../assets/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="../assets/datatables/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- DataTables Buttons JavaScript -->
+    <script src="../assets/datatables/js/dataTables.buttons.min.js"></script>
+    <script src="../assets/datatables/js/buttons.bootstrap4.min.js"></script>p5.min.js"></script>
+    <script src="../assets/datatables/js/buttons.print.min.js"></script>
+    <script src="../assets/datatables/js/buttons.html5.min.js"></script>
+    <script src="../assets/datatables/js/buttons.flash.min.js"></script>
+    <script src="../assets/datatables/js/pdfmake.min.js"></script>
+    <script src="../assets/datatables/js/vfs_fonts.js"></script>
+
+    <script src="../assets/datatables/js/datatable-setting.js"></script>
 </body>
 </html>

@@ -34,6 +34,21 @@
     <link href="../TemplateFiles/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="../TemplateFiles/css/responsive.css" rel="stylesheet" />
+    <script src="../TemplateFiles/js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            //get full url
+            var url = window.location.href;
+
+            //passed on every a tag
+            $("navbarSupportedContent a").each(function () {
+                if (url == (this.href)) {
+                    $(this).closest("li").addClass("active");
+                }
+            })
+        })
+    </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

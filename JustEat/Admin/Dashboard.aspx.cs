@@ -14,6 +14,10 @@ namespace JustEat.Admin
             if (!IsPostBack)
             {
                 Session["breadCrum"] = " ";
+                if (Session["admin"] == null)
+                {
+                    Response.Redirect("../Users/Login.aspx");
+                }
             }
         }
     }

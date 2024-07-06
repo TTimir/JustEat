@@ -22,7 +22,14 @@ namespace JustEat.Admin
             if (!IsPostBack)
             {
                 Session["breadCrum"] = "Category";
-                getCategories();
+                if (Session["admin"] == null)
+                {
+                    Response.Redirect("../Users/Login.aspx");
+                }
+                else
+                {
+                    getCategories();
+                }
             }
             lblMsg.Visible = false;
         }

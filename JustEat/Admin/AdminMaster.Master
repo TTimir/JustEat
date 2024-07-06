@@ -128,7 +128,7 @@
                                 <li class="user-profile header-notification">
                                     <a href="#!">
                                         <img src="../assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                        <span>John Doe</span>
+                                        <span>Administrator</span>
                                         <i class="ti-angle-down"></i>
                                     </a>
                                     <ul class="show-notification profile-notification">
@@ -153,9 +153,12 @@
                                             </a>
                                         </li>--%>
                                         <li>
-                                            <a href="auth-normal-sign-in.html">
+                                            <%--<a href="auth-normal-sign-in.html">
                                                 <i class="ti-layout-sidebar-left"></i>Logout
-                                            </a>
+                                            </a>--%>
+                                            <asp:LinkButton ID="lbLogout" runat="server" CausesValidation="false" OnClick="lbLogout_Click">
+                                                <i class="ti-layout-sidebar-left"></i>Logout
+                                            </asp:LinkButton>
                                         </li>
                                     </ul>
                                 </li>
@@ -304,13 +307,6 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="map-google.html">
-                                            <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Update Delivery Status</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
                                     <%--<li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)">
                                             <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
@@ -354,10 +350,21 @@
                                     </li>
                                 </ul>--%>
 
+                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Product Delivery Status</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li>
+                                        <a href="Product.aspx">
+                                            <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Update Delivery Status</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+
                                 <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">User's</div>
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li>
-                                        <a href="#!">
+                                        <a href="Users.aspx">
                                             <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Users List</span>
                                             <span class="pcoded-mcaret"></span>
@@ -470,7 +477,8 @@
 
     <!-- DataTables Buttons JavaScript -->
     <script src="../assets/datatables/js/dataTables.buttons.min.js"></script>
-    <script src="../assets/datatables/js/buttons.bootstrap4.min.js"></script>p5.min.js"></script>
+    <script src="../assets/datatables/js/buttons.bootstrap4.min.js"></script>
+    p5.min.js"></script>
     <script src="../assets/datatables/js/buttons.print.min.js"></script>
     <script src="../assets/datatables/js/buttons.html5.min.js"></script>
     <script src="../assets/datatables/js/buttons.flash.min.js"></script>

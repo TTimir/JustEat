@@ -13,5 +13,11 @@ namespace JustEat.Admin
         {
 
         }
+
+        protected void lbLogout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("../Users/Login.aspx");
+        }
     }
 }

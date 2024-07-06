@@ -23,6 +23,42 @@ namespace JustEat.Users
                 // Add control to panel
                 pnlSliderUC.Controls.Add(sliderUserControl);
             }
+
+            if (Session["userId"] != null)
+            {
+                lbLoginOrLogout.Text = "Leave Kitchen";
+            }
+            else
+            {
+                lbLoginOrLogout.Text = "Hungry for More? <b>Login</b>";
+            }
+        }
+
+        protected void lbLoginOrLogout_Click(object sender, EventArgs e)
+        {
+            if (Session["userId"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                Session.Abandon();
+                Response.Redirect("Login.aspx");
+            }
+        }
+
+        protected void lbRegisterOrProfile_Click(object sender, EventArgs e)
+        {
+            if (Session["userId"] != null)
+            {
+                lbRegisterOrProfile.Text = "User Profile";
+                Response.Redirect("Profile.aspx");
+            }
+            else
+            {
+                lbRegisterOrProfile.Text = "User Registration";
+                Response.Redirect("Registration.aspx");
+            }
         }
     }
 }

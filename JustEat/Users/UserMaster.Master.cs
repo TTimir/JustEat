@@ -27,10 +27,13 @@ namespace JustEat.Users
             if (Session["userId"] != null)
             {
                 lbLoginOrLogout.Text = "Leave Kitchen";
+                Connection.Utils utils = new Connection.Utils();
+                Session["cartCount"] = utils.cartCount(Convert.ToInt32(Session["userId"])).ToString();
             }
             else
             {
                 lbLoginOrLogout.Text = "Hungry? <b>Login</b>";
+                Session["cartCount"] = "0";
             }
         }
 

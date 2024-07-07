@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
+using JustEat.Admin;
 
 namespace JustEat
 {
@@ -15,6 +18,10 @@ namespace JustEat
 
         public class Utils
         {
+            SqlConnection conn;
+            SqlCommand cmd;
+            SqlDataAdapter adp;
+            DataTable dt;
             public static bool IsValidExtension(string fileName)
             {
                 bool IsValid = false;
@@ -42,6 +49,47 @@ namespace JustEat
                     url1 = string.Format("../{0}", url);
                 }
                 return url1;
+            }
+
+            public bool updateCartQuantity(int quantity, int productId, int userId)
+            {
+                bool isUpdated = false;
+                conn = new SqlConnection(Connection.GetConnectionString());
+                cmd = new SqlCommand("Cart_Crud", conn);
+                cmd.Parameters.AddWithValue("@Action", "UPDATE");
+                cmd.Parameters.AddWithValue("@ProductId", productId);
+                cmd.Parameters.AddWithValue("@Quantity", quantity);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    isUpdated = true;
+                }
+                catch (Exception ex)
+                {
+                    isUpdated = false;
+                    System.Web.HttpContext.Current.Response.Write("<script>alert(' Error - " + ex.Message + " ');</script>");
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                return isUpdated;
+            }
+
+            public int cartCount(int userId)
+            {
+                conn = new SqlConnection(Connection.GetConnectionString());
+                cmd = new SqlCommand("Cart_Crud", conn);
+                cmd.Parameters.AddWithValue("@Action", "SELECT");
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.CommandType = CommandType.StoredProcedure;
+                adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                return dt.Rows.Count;
             }
         }
 

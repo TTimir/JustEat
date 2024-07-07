@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Users/UserMaster.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="JustEat.Users.Profile" %>
-
 <%@ Import Namespace="JustEat" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

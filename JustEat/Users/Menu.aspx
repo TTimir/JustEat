@@ -11,6 +11,9 @@
     <section class="food_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
+                <div class="align-self-end">
+                    <asp:Label ID="lblMsg" runat="server" Visible="false"></asp:Label>
+                </div>
                 <h2>Our Menu
                 </h2>
             </div>
@@ -28,7 +31,7 @@
                 <div class="row grid">
                     <asp:Label ID="lblNoProducts" runat="server" Visible="false"></asp:Label>
 
-                    <asp:Repeater ID="rProducts" runat="server">
+                    <asp:Repeater ID="rProducts" runat="server" OnItemCommand="rProducts_ItemCommand">
                         <ItemTemplate>
                             <div class="col-sm-6 col-lg-4 all <%# Regex.Replace(Eval("CategoryName").ToString().ToLower(), @"\s+", "") %>">
                                 <div class="box">

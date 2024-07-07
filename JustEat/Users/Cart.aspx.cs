@@ -122,6 +122,7 @@ namespace JustEat.Users
             {
                 bool isCheckoutPossible = true;
                 string outOfStockProductName = string.Empty;
+                int stockLeft = 0;
 
                 // Check if all items are in stock
                 for (int item = 0; item < rCartItem.Items.Count; item++)
@@ -141,6 +142,7 @@ namespace JustEat.Users
                         {
                             isCheckoutPossible = false;
                             outOfStockProductName = productName.Text;
+                            stockLeft = productQuantity; 
                             break;
                         }
                     }
@@ -153,7 +155,7 @@ namespace JustEat.Users
                 else
                 {
                     lblMsg.Visible = true;
-                    lblMsg.Text = "Your favorite food <b>'" + outOfStockProductName + "'</b> is out of stock :( ";
+                    lblMsg.Text = "Your favorite food <b>'" + outOfStockProductName + "'</b> is out of stock :( <b> Only " + stockLeft + " left.</b>";
                     lblMsg.CssClass = "alert alert-warning";
                 }
             }

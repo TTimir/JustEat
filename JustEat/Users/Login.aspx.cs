@@ -17,7 +17,7 @@ namespace JustEat.Users
         DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userid"] != null)
+            if (Session["userId"] != null)
             {
                 Response.Redirect("Default.aspx");
             }
@@ -44,7 +44,7 @@ namespace JustEat.Users
 
                 if (dt.Rows.Count == 1) 
                 {
-                    Session["Username"] = txtUsername.Text.Trim();
+                    Session["Username"] = dt.Rows[0]["Username"].ToString();
                     Session["userId"] = dt.Rows[0]["UserId"];
                     Response.Redirect("Default.aspx");
                 }

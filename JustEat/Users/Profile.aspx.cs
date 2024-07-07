@@ -49,13 +49,13 @@ namespace JustEat.Users
 
                 // Update session variables with fresh data
                 Session["name"] = dt.Rows[0]["Name"].ToString();
-                Session["username"] = dt.Rows[0]["Username"].ToString();
-                Session["mobile"] = dt.Rows[0]["Mobile"].ToString();
+                //Session["username"] = dt.Rows[0]["Username"].ToString();
+                //Session["mobile"] = dt.Rows[0]["Mobile"].ToString();
                 Session["email"] = dt.Rows[0]["Email"].ToString();
-                Session["address"] = dt.Rows[0]["Address"].ToString();
-                Session["postcode"] = dt.Rows[0]["PostCode"].ToString();
+                //Session["address"] = dt.Rows[0]["Address"].ToString();
+                //Session["postcode"] = dt.Rows[0]["PostCode"].ToString(); 
                 Session["imageUrl"] = dt.Rows[0]["ImageUrl"].ToString();
-                Session["createdDate"] = dt.Rows[0]["CreatedDate"].ToString();
+                Session["createdDate"] = ((DateTime)dt.Rows[0]["CreatedDate"]).ToString("yyyy-MM-dd");
             }
             else
             {

@@ -30,7 +30,7 @@ namespace JustEat.Users
             }
             else
             {
-                lbLoginOrLogout.Text = "Hungry for More? <b>Login</b>";
+                lbLoginOrLogout.Text = "Hungry? <b>Login</b>";
             }
         }
 

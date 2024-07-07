@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <%
-        string imageUrl = Session["ImageUrl"] != null ? Session["ImageUrl"].ToString() : "../Images/No_image.png";
+        string imageUrl = Session["ImageUrl"].ToString();
     %>
 
     <section class="book_section layout_padding">
@@ -26,7 +26,7 @@
                                     <div class="image-container">
                                         <img src="<%= Connection.Utils.GetImageUrl(imageUrl) %>" id="imgProfile" style="width: 150px; height: 150px;" class="img-thumbnail" />
                                         <div class="middle pt-2">
-                                            <a href="Registration.aspx?id=<%Response.Write(Session["userId"]);%>" class="btn btn-warning">
+                                            <a href="Registration.aspx?id=<% Response.Write(Session["userId"]); %>" class="btn btn-warning">
                                                 <i class="fa fa-pencil"></i>Edit Details
                                             </a>
                                         </div>
@@ -39,7 +39,7 @@
                                         <h6 class="d-block">
                                             <a href="javascript:void(0);">
                                                 <asp:Label ID="lblUsername" runat="server" ToolTip="Unique Username">
-                                                    @<%Response.Write(Session["Username"]); %>
+                                                    @<%Response.Write(Session["username"]); %>
                                                 </asp:Label>
                                             </a>
                                         </h6>
@@ -53,7 +53,7 @@
                                         <h6 class="d-block">
                                             <a href="javascript:void(0);">
                                                 <asp:Label ID="lblCreatedDate" runat="server" ToolTip="Account Created On">
-                                                    <%Response.Write(Session["createdDate"]); %>
+                                                    In Kitchan On: <%Response.Write(Session["createdDate"]); %>
                                                 </asp:Label>
                                             </a>
                                         </h6>

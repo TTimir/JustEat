@@ -73,6 +73,12 @@ namespace JustEat.Admin
                 isValidToExcute = true;
             }
 
+            if (productId != 0)
+            {
+                // When updating, enable checkbox editing
+                cbIsActive.Enabled = true;
+            }
+
             if (isValidToExcute)
             {
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -153,6 +159,7 @@ namespace JustEat.Admin
                 imgProduct.ImageUrl = string.IsNullOrEmpty(dt.Rows[0]["ImageUrl"].ToString()) ? "../Images/No_image.png" : "../" + dt.Rows[0]["ImageUrl"].ToString();
                 imgProduct.Height = 200;
                 imgProduct.Width = 200;
+                cbIsActive.Enabled = true;
                 hdnId.Value = dt.Rows[0]["ProductId"].ToString();
                 btnAddOrUpdate.Text = "Update";
                 LinkButton lbtn = e.Item.FindControl("lnkEdit") as LinkButton;

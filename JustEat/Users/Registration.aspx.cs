@@ -25,7 +25,7 @@ namespace JustEat.Users
             {
                 getUserDetails();
             }
-            else if (Session["userid"] != null)
+            else if (Session["userId"] != null)
             {
                 Response.Redirect("Default.aspx");
             }
@@ -38,8 +38,21 @@ namespace JustEat.Users
             int userId = Convert.ToInt32(Request.QueryString["id"] ?? "0");
             conn = new SqlConnection(Connection.GetConnectionString());
             cmd = new SqlCommand("User_Crud", conn);
-            cmd.Parameters.AddWithValue("@Action", userId == 0 ? "INSERT" : "UPDATE");
-            cmd.Parameters.AddWithValue("@UserId", userId);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Determine action (INSERT or UPDATE)
+            if (userId == 0)
+            {
+                cmd.Parameters.AddWithValue("@Action", "INSERT");
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@Action", "UPDATE");
+                cmd.Parameters.AddWithValue("@UserId", userId); // Include UserId for UPDATE
+            }
+
+            //cmd.Parameters.AddWithValue("@Action", userId == 0 ? "INSERT" : "UPDATE");
+            //cmd.Parameters.AddWithValue("@UserId", userId);
             cmd.Parameters.AddWithValue("@Name", txtName.Text.Trim());
             cmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim());
             cmd.Parameters.AddWithValue("@Mobile", txtMobile.Text.Trim());
@@ -47,6 +60,7 @@ namespace JustEat.Users
             cmd.Parameters.AddWithValue("@Address", txtAddress.Text.Trim());
             cmd.Parameters.AddWithValue("@PostCode", txtPostCode.Text.Trim());
             cmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
+
             if (fuUserImage.HasFile)
             {
                 if (Utils.IsValidExtension(fuUserImage.FileName))
@@ -77,38 +91,31 @@ namespace JustEat.Users
                 try
                 {
                     conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        actionname = userId == 0 ?
-                        " registration is successful! <b><a href='Login.aspx'> Click here</a></b> to do login" :
-                        " details updated succesful! <b><a href='Profile.aspx'> Can check here</a></b>";
-                        lblMsg.Visible = true;
-                        lblMsg.Text = "<b>" + txtUsername.Text.Trim() + "</b>" + actionname;
-                        lblMsg.CssClass = "alert alert-success";
-                        if (userId != 0)
-                        {
-                            // Update session variables after successful update
-                            Session["name"] = txtName.Text.Trim();
-                            Session["username"] = txtUsername.Text.Trim();
-                            Session["mobile"] = txtMobile.Text.Trim();
-                            Session["email"] = txtEmail.Text.Trim();
-                            Session["address"] = txtAddress.Text.Trim();
-                            Session["postcode"] = txtPostCode.Text.Trim();
-                            if (!string.IsNullOrEmpty(imagePath))
-                            {
-                                Session["imageUrl"] = imagePath;
-                            }
+                    cmd.ExecuteNonQuery();
 
-                            Response.AddHeader("REFRESH", "1;URL=Profile.aspx");
-                        }
-                        clear();
-                    }
-                    else
+                    actionname = userId == 0 ?
+                    " registration is successful! <b><a href='Login.aspx'> Click here</a></b> to do login" :
+                    " details updated succesful! <b><a href='Profile.aspx'> Can check here</a></b>";
+                    lblMsg.Visible = true;
+                    lblMsg.Text = "<b>" + txtUsername.Text.Trim() + "</b>" + actionname;
+                    lblMsg.CssClass = "alert alert-success";
+                    if (userId != 0)
                     {
-                        lblMsg.Visible = true;
-                        lblMsg.Text = "No changes were made.";
-                        lblMsg.CssClass = "alert alert-warning";
+                        // Set session variables after successful update or insert
+                        Session["name"] = txtName.Text.Trim();
+                        Session["username"] = txtUsername.Text.Trim();
+                        Session["mobile"] = txtMobile.Text.Trim();
+                        Session["email"] = txtEmail.Text.Trim();
+                        Session["address"] = txtAddress.Text.Trim();
+                        Session["postcode"] = txtPostCode.Text.Trim();
+                        if (!string.IsNullOrEmpty(imagePath))
+                        {
+                            Session["imageUrl"] = imagePath;
+                        }
+
+
+                        Response.AddHeader("REFRESH", "1;URL=Profile.aspx");
+                        clear();
                     }
                 }
                 catch (SqlException ex)
@@ -134,8 +141,8 @@ namespace JustEat.Users
             cmd.Parameters.AddWithValue("@Action", "SELECT4PROFILE");
             cmd.Parameters.AddWithValue("@UserId", Request.QueryString["id"]);
             cmd.CommandType = CommandType.StoredProcedure;
-            adp = new SqlDataAdapter(cmd);
-            dt = new DataTable();
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
             adp.Fill(dt);
             if (dt.Rows.Count == 1)
             {

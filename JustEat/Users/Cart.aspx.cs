@@ -118,12 +118,12 @@ namespace JustEat.Users
                 }
                 getCartItems();
             }
-
-            if (e.CommandName == "checkout")
+            else if (e.CommandName == "checkout")
             {
-                bool isTrue = false;
-                string pName = string.Empty;
-                // First will check item quantity
+                bool isCheckoutPossible = true;
+                string outOfStockProductName = string.Empty;
+
+                // Check if all items are in stock
                 for (int item = 0; item < rCartItem.Items.Count; item++)
                 {
                     if (rCartItem.Items[item].ItemType == ListItemType.Item || rCartItem.Items[item].ItemType == ListItemType.AlternatingItem)
@@ -132,31 +132,29 @@ namespace JustEat.Users
                         HiddenField _cartQuantity = rCartItem.Items[item].FindControl("hdnQuantity") as HiddenField;
                         HiddenField _productQuantity = rCartItem.Items[item].FindControl("hdnPrdQuantity") as HiddenField;
                         Label productName = rCartItem.Items[item].FindControl("lblName") as Label;
+
                         int productId = Convert.ToInt32(_productId.Value);
                         int cartQuantity = Convert.ToInt32(_cartQuantity.Value);
                         int productQuantity = Convert.ToInt32(_productQuantity.Value);
-                        if (productQuantity > cartQuantity && productQuantity > 2 )
+
+                        if (productQuantity < cartQuantity)
                         {
-                            isTrue = true;
-                        }
-                        else
-                        {
-                            isTrue = false;
-                            pName = productName.Text.ToString();
+                            isCheckoutPossible = false;
+                            outOfStockProductName = productName.Text;
                             break;
                         }
-                        if (isTrue)
-                        {
-                            Response.Redirect("Payment.aspx");
-                        }
-                        else
-                        {
-                            lblMsg.Visible = true;
-                            lblMsg.Text = "Your favorite food <b>'" + pName + "'</b> is out of stock :( ";
-                            lblMsg.CssClass = "alert alert-warning";
-                        }
-
                     }
+                }
+
+                if (isCheckoutPossible)
+                {
+                    Response.Redirect("Payment.aspx");
+                }
+                else
+                {
+                    lblMsg.Visible = true;
+                    lblMsg.Text = "Your favorite food <b>'" + outOfStockProductName + "'</b> is out of stock :( ";
+                    lblMsg.CssClass = "alert alert-warning";
                 }
             }
         }

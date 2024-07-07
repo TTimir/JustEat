@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Users/UserMaster.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="JustEat.Users.Cart" %>
+
 <%@ Import Namespace="JustEat" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -16,7 +17,15 @@
             -moz-appearance: textfield;
         }
     </style>
-
+    <script>
+        //For disappearing alert message
+        window.onload = function () {
+            var seconds = 10;
+            setTimeout(function () {
+                document.getElementById("<%=lblMsg.ClientID %>").style.display = "none";
+        }, seconds * 1000);
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

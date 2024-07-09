@@ -101,7 +101,7 @@ namespace JustEat.Users
                         Convert.ToInt32(Session["userId"]));
                 }
                 lblMsg.Visible = true;
-                lblMsg.Text = "hooray! Your food is waiting for you in your cart.";
+                lblMsg.Text = "<b>hooray!</b> Your food is waiting for you in your cart.";
                 lblMsg.CssClass = "alert alert-success";
                 Response.AddHeader("REFRESH", "1;URL=Cart.aspx");
             }

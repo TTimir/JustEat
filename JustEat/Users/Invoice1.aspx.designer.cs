@@ -11,43 +11,43 @@ namespace JustEat.Users
 {
 
 
-    public partial class Invoice
+    public partial class Invoice1
     {
 
         /// <summary>
-        /// lblMsg control.
+        /// lblUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg;
+        protected global::System.Web.UI.WebControls.Label lblUserName;
 
         /// <summary>
-        /// rOrderItem5 control.
+        /// lblUserPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rOrderItem5;
+        protected global::System.Web.UI.WebControls.Label lblUserPhone;
 
         /// <summary>
-        /// rOrderItem1 control.
+        /// lblUserEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rOrderItem1;
+        protected global::System.Web.UI.WebControls.Label lblUserEmail;
 
         /// <summary>
-        /// rOrderItem2 control.
+        /// rOrderItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rOrderItem2;
+        protected global::System.Web.UI.WebControls.Repeater rOrderItem;
     }
 }

@@ -1,17 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Users/UserMaster.Master" AutoEventWireup="true" CodeBehind="Invoice.aspx.cs" Inherits="JustEat.Users.Invoice" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Invoice1.aspx.cs" Inherits="JustEat.Users.Invoice1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<!DOCTYPE html>
 
-    <script>
-        //For disappearing alert message
-        window.onload = function () {
-            var seconds = 5;
-            setTimeout(function () {
-                document.getElementById("<%=lblMsg.ClientID %>").style.display = "none";
-            }, seconds * 1000);
-        }
-    </script>
-
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>JustEat - Order Invoice</title>
+    <link rel="shortcut icon" href="../TemplateFiles/images/favicon.png" type="" />
+    <link href="assets/images/favicon/icon.png" rel="icon" />
+    <link href="../css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
+    <link href="../assets/Invoice/css/custom.css" rel="stylesheet" />
+    <link href="../assets/Invoice/css/media-query.css" rel="stylesheet" />
     <style>
         .invoice-logo-content {
             font-family: 'Dancing Script', cursive;
@@ -23,62 +21,8 @@
             color: #ffffff;
         }
     </style>
-
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lblMsg" runat="server" Visible="false"></asp:Label>
-
-    <%--<section class="book_section layout_padding">
-        <div class="container">
-            <div class="heading_container">
-                <div class="align-self-end">
-                    <asp:Label ID="lblMsg" runat="server" Visible="false"></asp:Label>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <asp:Repeater ID="rOrderItem" runat="server">
-                <HeaderTemplate>
-                    <table class="table table-responsive-sm table-bordered table-hover" id="tblInvoice">
-                        <thead class="bg-dark text-white">
-                            <tr>
-                                <th>Sr.No</th>
-                                <th>Order Number</th>
-                                <th>Item Name</th>
-                                <th>Unit Price</th>
-                                <th>Quantity</th>
-                                <th>Total Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                </HeaderTemplate>
-                <ItemTemplate>
-                    <tr>
-                        <td><%# Eval("SrNo") %></td>
-                        <td><%# Eval("OrderNo") %></td>
-                        <td><%# Eval("Name") %></td>
-                        <td><%# string.IsNullOrEmpty( Eval("Price").ToString() ) ? "" : "₹"+ Eval("Price") %></td>
-                        <td><%# Eval("Quantity") %></td>
-                        <td>₹<%# Eval("TotalPrice") %></td>
-                    </tr>
-                </ItemTemplate>
-                <FooterTemplate>
-                    </tbody>
-                    </table>
-                </FooterTemplate>
-            </asp:Repeater>
-
-            <div class="text-center">
-                <asp:LinkButton ID="lbDownloadInvoice" runat="server" CssClass="btn btn-info" OnClick="lbDownloadInvoice_Click">
-                    <i class="fa fa-file-pdf-0 mr-2"></i> Downlaod Invoice
-                </asp:LinkButton>
-            </div>
-
-        </div>
-    </section>--%>
-
-
+</head>
+<body>
     <!--Invoice wrap start here -->
     <div class="invoice_wrap restaurant">
         <div class="invoice-container">
@@ -104,7 +48,7 @@
                                             </defs></svg>
                                     </div>
                                     <div class="invo-social-name">
-                                        <a href="tel:+12345678899" class="font-18">+91 234 567 8899</a>
+                                        <a href="tel:+12345678899" class="font-18">+1 234 567 8899</a>
                                     </div>
                                 </div>
                                 <div class="invo-cont-wrap pt-10">
@@ -136,21 +80,17 @@
                         <div class="bus-invo-no-date-wrap">
                             <div class="bus-invo-num">
                                 <span class="font-md color-light-black">Invoice No:</span>
-                                <asp:Repeater ID="rOrderItem5" runat="server">
-                                    <ItemTemplate>
-                                        <span class="font-md-grey color-light-black"><%# Regex.Replace(Eval("OrderDetailsId").ToString().ToLower(), @"\s+", "") %></span>
-                                    </ItemTemplate>
-                                </asp:Repeater>
+                                <span class="font-md-grey color-light-black">#DI56789</span>
                             </div>
                             <div class="bus-invo-date">
                                 <span class="font-md color-light-black">Invoice Date:</span>
-                                <span class="font-md-grey color-light-black"><%= DateTime.Now.ToString("dd/MM/yyyy") %></span>
+                                <span class="font-md-grey color-light-black">30/11/2022</span>
                             </div>
                         </div>
                         <!--Invoice owner name start here -->
                         <div class="invoice-owner-conte-wrap pt-20">
                             <div class="invo-to-wrap">
-                                <%--<div class="invoice-to-content">
+                                <div class="invoice-to-content">
                                     <p class="font-md color-light-black">Invoice To:</p>
                                     <h1 class="font-lg color-yellow pt-10" id="lblUserName">
                                         <asp:Label ID="lblUserName" runat="server" /></h1>
@@ -160,7 +100,7 @@
                                         Email: <span id="lblUserEmail">
                                             <asp:Label ID="lblUserEmail" runat="server" /></span>
                                     </p>
-                                </div>--%>
+                                </div>
                             </div>
                             <div class="invo-pay-to-wrap">
                                 <div class="invoice-pay-content">
@@ -176,7 +116,7 @@
                         <!--Invoice owner name end here -->
                         <!--Invoice table data start here -->
                         <div class="table-wrapper res-contact">
-                            <asp:Repeater ID="rOrderItem1" runat="server">
+                            <asp:Repeater ID="rOrderItem" runat="server">
                                 <HeaderTemplate>
                                     <table class="invoice-table restaurant-table">
                                         <thead>
@@ -186,7 +126,7 @@
                                                 <th class="font-md color-light-black res-pric text-center">Item Name</th>
                                                 <th class="font-md color-light-black res-qty text-center">Unit Price</th>
                                                 <th class="font-md color-light-black res-total text-center ">Qty</th>
-                                                <th class="font-md color-light-black res-total text-center ">Total Price</th>
+                                                <%--<th class="font-md color-light-black res-total text-center ">Total Price</th>--%>
                                             </tr>
                                         </thead>
                                         <tbody class="invo-tb-body">
@@ -198,43 +138,25 @@
                                         <td class="font-sm color-grey text-center"><%# Eval("Name") %></td>
                                         <td class="font-sm color-grey text-center"><%# string.IsNullOrEmpty( Eval("Price").ToString() ) ? "" : "₹"+ Eval("Price") %></td>
                                         <td class="font-sm color-grey text-center"><%# Eval("Quantity") %></td>
-                                        <td class="font-sm color-grey text-center">₹<%# Eval("TotalPrice") %></td>
+                                        <%--<td class="font-sm color-grey text-center">₹<%# Eval("TotalPrice") %></td>--%>
                                     </tr>
                                 </ItemTemplate>
                                 <FooterTemplate>
                                     </tbody>
-                            </table>
+                                </table>
                                 </FooterTemplate>
                             </asp:Repeater>
-
                         </div>
                         <!--Invoice table data end here -->
                         <!--Invoice additional info start here -->
                         <div class="invo-addition-wrap pt-20">
                             <div class="invo-add-info-content">
                                 <h3 class="font-md color-light-black">Additional Information:</h3>
-
-
-                                <p class="font-sm pt-10">
-                                    Thank you for choosing JustEat! We hope you enjoy your meal. Our
-                                    <asp:Repeater ID="rOrderItem2" runat="server">
-                                        <ItemTemplate>
-                                            <%# Eval("Name") %>
-                                            <asp:Literal runat="server" Text='<%# Container.ItemIndex < (Container.Parent as Repeater).Items.Count - 1 ? "- " : ", " %>'></asp:Literal>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                    are made with the freshest ingredients and cooked to perfection. If you have any feedback or need assistance with your order, please don't hesitate to contact us. Your satisfaction is our top priority.
-                                </p>
-
-
+                                <p class="font-sm pt-10">A ut vitae nullam risus at. Justo enim nisi elementum ac. Massa molestie metus vitae ornare turpis donec odio sollicitudin. Ac ut tellus eu donec dictum risus blandit. Quam diam dictum amet.</p>
                             </div>
-                            <%--<div class="invo-bill-total desc-wid">
-                                <asp:Repeater ID="rOrderItem3" runat="server">
-                                    <HeaderTemplate>
-                                        <table class="invo-total-table">
-                                            <tbody>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
+                            <div class="invo-bill-total desc-wid">
+                                <table class="invo-total-table">
+                                    <tbody>
                                         <tr>
                                             <td class="font-md color-light-black">Sub Total:</td>
                                             <td class="font-md-grey color-grey text-center">₹<%# Eval("TotalPrice") %></td>
@@ -251,42 +173,32 @@
                                             <td class="color-yellow font-18-700 pt-20">Grand Total:</td>
                                             <td class="font-18-500 color-light-black pt-20 text-center">₹<%# Eval("TotalPrice") %></td>
                                         </tr>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </tbody>
-                                        </table>
-                                    </FooterTemplate>
-                                </asp:Repeater>
-                            </div>--%>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!--Invoice additional info end here -->
                         <!--Payment detail table start here -->
-                        <%--                        <div class="rest-payment-bill">
+                        <div class="rest-payment-bill">
                             <div class="payment-wrap payment-wrap-res p-0">
                                 <table class="res-pay-table">
                                     <tbody>
-                                        <asp:Repeater ID="rOrderItem4" runat="server">
-                                            <ItemTemplate>
-                                                <tr class="table-bg">
-                                                    <td class="font-md color-light-black pay-type">Payment Details:</td>
-                                                    <td class="font-md-grey color-grey pay-type"><%# Eval("PaymentMode").ToString().ToUpper() %></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="font-md color-light-black pay-type">Date:</td>
-                                                    <td class="font-md-grey color-grey"><%# ((DateTime)Eval("OrderDate")).ToString("dd-MM-yyyy") %></td>
-                                                </tr>
-                                                <tr class="table-bg">
-                                                    <td class="font-md color-light-black pay-type">Order No <span class="color-grey font-sm">
-                                                        <br />
-                                                        (Last Four Digits)</span>:</td>
-                                                    <td class="font-md-grey color-grey"><%# Eval("OrderNo").ToString().Substring(Math.Max(0, Eval("OrderNo").ToString().Length - 4)) %></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="font-md color-light-black pay-type">Amount:</td>
-                                                    <td class="font-md-grey color-grey">₹<%# Eval("TotalPrice") %></td>
-                                                </tr>
-                                            </ItemTemplate>
-                                        </asp:Repeater>
+                                        <tr class="table-bg">
+                                            <td class="font-md color-light-black pay-type">Payment Details:</td>
+                                            <td class="font-md-grey color-grey pay-type"><%# Eval("PaymentMode") %></td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="font-md color-light-black pay-type">Date:</td>
+                                            <td class="font-md-grey color-grey">30/11/2022</td>
+                                        </tr>
+                                        <tr class="table-bg">
+                                            <td class="font-md color-light-black pay-type">Transaction ID:</td>
+                                            <td class="font-md-grey color-grey">TD23651456</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="font-md color-light-black pay-type">Amount:</td>
+                                            <td class="font-md-grey color-grey">$1094.60</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -297,8 +209,7 @@
                                 <p class="font-sm-500">Just Eat</p>
                                 <h3 class="font-md-grey color-light-black">Food Court Manager</h3>
                             </div>
-                        </div>--%>
-
+                        </div>
                         <!--Payment detail table end here -->
                         <div class="res-contact res-bottom">
                             <p class="font-sm color-light-black text-center">Thank you for choosing to dine with us. See you soon 🙂</p>
@@ -368,4 +279,10 @@
         </div>
     </div>
     <!--Invoice wrap End here -->
-</asp:Content>
+
+    <script src="../assets/Invoice/js/jquery.min.js"></script>
+    <script src="../assets/Invoice/js/jspdf.min.js"></script>
+    <script src="../assets/Invoice/js/html2canvas.min.js"></script>
+    <script src="../assets/Invoice/js/custom.js"></script>
+</body>
+</html>

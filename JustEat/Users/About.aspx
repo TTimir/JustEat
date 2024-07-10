@@ -11,24 +11,26 @@
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/about-img.png" alt="">
+            <img src="../TemplateFiles/images/about-img.png" alt="">
           </div>
         </div>
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                We Are Feane
+                We Are JustEat
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+                We are JustEat—a platform dedicated to bringing you the best in dining options. Our goal is to ensure your experience is seamless and delightful, from order to enjoyment.
+                <br />
+                <br />
+                Your go-to place for tasty meals. Our goal is to make ordering and enjoying food easy and enjoyable. 
+                With a diverse menu personalized for your tastes, whether you're in the mood for familiar favorites or want to 
+                try something new, we're here to ensure every meal is a delightful experience.
             </p>
-            <a href="">
-              Read More
+            <a href="Menu.aspx">
+              Satisfy Your Craving
             </a>
           </div>
         </div>

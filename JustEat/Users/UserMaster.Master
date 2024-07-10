@@ -150,11 +150,11 @@
                                         <%Response.Write(Session["cartCount"]); %>
                                     </span>
                                 </a>
-                                <div class="form-inline">
+                                <%--<div class="form-inline">
                                     <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                                         <i class="fa fa-search" aria-hidden="true"></i>
                                     </button>
-                                </div>
+                                </div>--%>
                                 <%--<a href="" class="order_online">Order Online
                                 </a>--%>
                                 <asp:LinkButton ID="lbLoginOrLogout" runat="server" CssClass="order_online" CausesValidation="false" OnClick="lbLoginOrLogout_Click"></asp:LinkButton>
@@ -188,12 +188,12 @@
                                 </a>
                                 <a href="">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <span>Call +01 1234567890
+                                    <span>Call +91 1234567890
                                     </span>
                                 </a>
                                 <a href="">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span>demo@gmail.com
+                                    <span>justeat@gmail.com
                                     </span>
                                 </a>
                             </div>
@@ -201,25 +201,25 @@
                     </div>
                     <div class="col-md-4 footer-col">
                         <div class="footer_detail">
-                            <a href="" class="footer-logo">JustEat
+                            <a href="Default.aspx" class="footer-logo">JustEat
                             </a>
                             <p>
-                                Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+                                Your cravings, our creation—order, savor, and enjoy. experience a delicious journey with every order—crafted just for you to enjoy.
                             </p>
                             <div class="footer_social">
-                                <a href="">
+                                <a href="#!">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                 </a>
-                                <a href="">
+                                <a href="#!">
                                     <i class="fa fa-twitter" aria-hidden="true"></i>
                                 </a>
-                                <a href="">
+                                <a href="#!">
                                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                                 </a>
-                                <a href="">
+                                <a href="#!">
                                     <i class="fa fa-instagram" aria-hidden="true"></i>
                                 </a>
-                                <a href="">
+                                <a href="#!">
                                     <i class="fa fa-pinterest" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -238,11 +238,10 @@
                 </div>
                 <div class="footer-info">
                     <p>
-                        &copy; <span id="displayYear"></span>All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br>
+                        &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="Default.aspx">JustEat Food Court</a><br>
                         <br>
-                        &copy; <span id="displayYear"></span>Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+                        &hearts; <span id="displayYear"></span>Savoring every bite, served with care & love.
                     </p>
                 </div>
             </div>

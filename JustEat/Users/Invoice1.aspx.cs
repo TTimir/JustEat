@@ -97,7 +97,7 @@ namespace JustEat.Users
                         else
                         {
                             // Handle case where no data is returned
-                            // Optionally show a message or redirect
+                            Response.Write("Error no data is returned");
                         }
                     }
                     DataRow dr = dt.NewRow();

@@ -117,6 +117,8 @@
                                                         <asp:FileUpload ID="fuProductImage" runat="server" CssClass="form-control" onchange="ImagePreview(this);" />
                                                     </div>
                                                 </div>
+                                                
+                                                <asp:Label ID="lblMessage" runat="server" Text="*If you can't click the checkbox, please refresh the link." CssClass="form-text text-danger color-red" Visible="true"></asp:Label>
                                                 <div class="form-check pl-4">
                                                     <asp:CheckBox ID="cbIsActive" runat="server" Text="&nbsp; IsActive" CssClass="form-check-input" />
                                                 </div>

@@ -52,7 +52,9 @@
                                                 <div class="form-group">
                                                     <label>Category Name</label>
                                                     <div>
-                                                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" placeholder="Enter Category Name" required></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="revName" runat="server" ErrorMessage="Category Name Is required!" 
+                                                            ForeColor="Red" Display="Dynamic" SetFocusOnError="true" ControlToValidate="txtName"></asp:RequiredFieldValidator>
+                                                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" placeholder="Enter Category Name"></asp:TextBox>
                                                         <asp:HiddenField ID="hdnId" runat="server" Value="0" />
                                                     </div>
                                                 </div>
@@ -62,14 +64,18 @@
                                                         <asp:FileUpload ID="fuCategoryImage" runat="server" CssClass="form-control" onchange="ImagePreview(this);" />
                                                     </div>
                                                 </div>
+                                                
+                                                <asp:Label ID="lblMessage" runat="server" Text="*If you can't click the checkbox, please refresh the link." CssClass="form-text text-danger color-red" Visible="true"></asp:Label>
                                                 <div class="form-check pl-4">
                                                     <asp:CheckBox ID="cbIsActive" runat="server" Text="&nbsp; IsActive" CssClass="form-check-input" />
                                                 </div>
+                                                
                                                 <div class="pb-5">
                                                     <asp:Button ID="btnAddOrUpdate" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="btnAddOrUpdate_Click" />
                                                     &nbsp;
                                                     <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-primary" CausesValidation="false" OnClick="btnClear_Click" />
                                                 </div>
+                                                
                                                 <div>
                                                     <asp:Image ID="imgCategory" runat="server" CssClass="img-thumbnail" />
                                                 </div>

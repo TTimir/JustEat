@@ -24,6 +24,15 @@ namespace JustEat.Admin
         protected global::System.Web.UI.WebControls.Label lblMsg;
 
         /// <summary>
+        /// revName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator revName;
+
+        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace JustEat.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuCategoryImage;
+
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
         /// cbIsActive control.

@@ -69,6 +69,12 @@ namespace JustEat.Admin
                 isValidToExcute = true;
             }
 
+            if (categoryId != 0)
+            {
+                // When updating, enable checkbox editing
+                cbIsActive.Enabled = true;
+            }
+
             if (isValidToExcute)
             {
                 cmd.CommandType = CommandType.StoredProcedure;

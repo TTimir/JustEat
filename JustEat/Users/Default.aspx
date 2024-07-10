@@ -107,16 +107,15 @@
                 <div class="col-md-6">
                     <div class="detail-box">
                         <div class="heading_container">
-                            <h2>We Are Feane
+                            <h2>We Are JustEat
                             </h2>
                         </div>
                         <p>
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+                            Your go-to place for tasty meals. Our goal is to make ordering and enjoying food easy and 
+                            enjoyable. With a diverse menu personalized for your tastes, whether you're in the mood craving 
+                            comfort food or exploring new flavors, we're here to make every mealtime a memorable journey.
                         </p>
-                        <a href="">Read More
+                        <a href="Menu.aspx">Savor the Flavors
                         </a>
                     </div>
                 </div>

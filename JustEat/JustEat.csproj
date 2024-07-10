@@ -125,6 +125,7 @@
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Product.aspx" />
     <Content Include="Admin\Users.aspx" />
+    <Content Include="assets\images\avatar-5.jpg" />
     <Content Include="assets\css\animate.css\css\animate.css" />
     <Content Include="assets\css\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\css\jquery.mCustomScrollbar.css" />
@@ -164,6 +165,8 @@
     <Content Include="assets\images\avatar-2.jpg" />
     <Content Include="assets\images\avatar-3.jpg" />
     <Content Include="assets\images\avatar-4.jpg" />
+    <Content Include="assets\images\avatar-6.jpg" />
+    <Content Include="assets\images\avatar-7.jpg" />
     <Content Include="assets\images\bg.jpg" />
     <Content Include="assets\images\favicon.ico" />
     <Content Include="assets\images\flags\ENGLISH.jpg" />

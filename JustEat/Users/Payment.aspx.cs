@@ -169,7 +169,7 @@ namespace JustEat.Users
                 lblMsg.Visible = true;
                 lblMsg.Text = "Your item ordered successfully!";
                 lblMsg.CssClass = "alert alert-success";
-                Response.AddHeader("REFRESH", "1;URL=Invoice.aspx?id=" + paymentId);
+                Response.AddHeader("REFRESH", "1;URL=Invoice1.aspx?id=" + paymentId);
             }
             catch (Exception ex)
             {

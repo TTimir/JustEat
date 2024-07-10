@@ -15,39 +15,66 @@ namespace JustEat.Users
     {
 
         /// <summary>
-        /// lblUserName control.
+        /// lblMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserName;
+        protected global::System.Web.UI.WebControls.Label lblMsg;
 
         /// <summary>
-        /// lblUserPhone control.
+        /// rOrderItem5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserPhone;
+        protected global::System.Web.UI.WebControls.Repeater rOrderItem5;
 
         /// <summary>
-        /// lblUserEmail control.
+        /// rOrderItem1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserEmail;
+        protected global::System.Web.UI.WebControls.Repeater rOrderItem1;
 
         /// <summary>
-        /// rOrderItem control.
+        /// rOrderItem2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rOrderItem;
+        protected global::System.Web.UI.WebControls.Repeater rOrderItem2;
+
+        /// <summary>
+        /// lblPaymentMode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPaymentMode;
+
+        /// <summary>
+        /// lblOrderDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOrderDate;
+
+        /// <summary>
+        /// lblGrandTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGrandTotal;
     }
 }

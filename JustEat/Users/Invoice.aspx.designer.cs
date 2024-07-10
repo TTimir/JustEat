@@ -24,15 +24,6 @@ namespace JustEat.Users
         protected global::System.Web.UI.WebControls.Label lblMsg;
 
         /// <summary>
-        /// rOrderItem5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rOrderItem5;
-
-        /// <summary>
         /// rOrderItem1 control.
         /// </summary>
         /// <remarks>
@@ -42,12 +33,12 @@ namespace JustEat.Users
         protected global::System.Web.UI.WebControls.Repeater rOrderItem1;
 
         /// <summary>
-        /// rOrderItem2 control.
+        /// lbDownloadInvoice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rOrderItem2;
+        protected global::System.Web.UI.WebControls.LinkButton lbDownloadInvoice;
     }
 }

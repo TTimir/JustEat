@@ -54,6 +54,7 @@ namespace JustEat.Users
 
         protected void lbCodSubmit_Click(object sender, EventArgs e)
         {
+            _name = txtCODName.Text.Trim(); 
             _address = txtCODAddress.Text.Trim();
             _paymentMode = "cod";
             if (Session["userId"] != null)
@@ -95,10 +96,11 @@ namespace JustEat.Users
             if (paymentMode == "cod")
             {
                 // Set as null for not required fields
-                cmd.Parameters.AddWithValue("@Name", DBNull.Value);
+                cmd.Parameters.AddWithValue("@Name", name);
                 cmd.Parameters.AddWithValue("@CardNo", DBNull.Value);
                 cmd.Parameters.AddWithValue("@ExpiryDate", DBNull.Value);
                 cmd.Parameters.AddWithValue("@Cvv", DBNull.Value);
+                cmd.Parameters.AddWithValue("@Address", address);
             }
             else
             {
@@ -107,9 +109,9 @@ namespace JustEat.Users
                 cmd.Parameters.AddWithValue("@CardNo", cardNo);
                 cmd.Parameters.AddWithValue("@ExpiryDate", expiryDate);
                 cmd.Parameters.AddWithValue("@Cvv", cvv);
+                cmd.Parameters.AddWithValue("@Address", address);
             }
 
-            cmd.Parameters.AddWithValue("@Address", address);
             cmd.Parameters.AddWithValue("@PaymentMode", paymentMode);
             cmd.Parameters.Add("@InsertedId", SqlDbType.Int).Direction = ParameterDirection.Output;
 

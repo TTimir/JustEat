@@ -32,10 +32,10 @@
             var seconds = 8;
             setTimeout(function () {
                 var lblMsg = document.getElementById("<%=lblMsg.ClientID %>");
-            if (lblMsg) {
-                lblMsg.style.display = "none";
-            }
-        }, seconds * 1000);
+                if (lblMsg) {
+                    lblMsg.style.display = "none";
+                }
+            }, seconds * 1000);
 
             // Disable back button function
             function DisableBackButton() {
@@ -156,6 +156,17 @@
                                     </div>
                                 </div>
                                 <div id="paypal" class="tab-pane fade pt-3">
+                                    <div class="form-group">
+                                        <label for="txtName">
+                                            <h6>Name</h6>
+                                        </label>
+                                        <asp:TextBox ID="txtCODName" runat="server" CssClass="form-control" placeholder="Name"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="rfvCodName" runat="server" ErrorMessage="Name is required" ControlToValidate="txtCODName" 
+                                            ForeColor="Red" Display="Dynamic" SetFocusOnError="true" ValidationGroup="cod" Font-Names="Segoe Script"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="revCodName" runat="server" ErrorMessage="Name must be in characters" ForeColor="Red" 
+                                            Display="Dynamic" SetFocusOnError="true" ValidationExpression="^[a-zA-Z\s]+$" ControlToValidate="txtCODName" ValidationGroup="cod" Font-Names="Segoe Script">
+                                        </asp:RegularExpressionValidator>
+                                    </div>
                                     <div class="form-group">
                                         <label for="txtCODAddress">
                                             <h6>Delivery Address</h6>

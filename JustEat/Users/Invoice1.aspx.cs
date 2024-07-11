@@ -62,26 +62,35 @@ namespace JustEat.Users
                     {
                         if (dt.Rows.Count > 0 && reader.Read())
                         {
+                            lblUserName.InnerText = reader["UserName"].ToString();
+                            lblUserPhone.InnerText = reader["UserMobile"].ToString();
+                            lblUserEmail.InnerText = reader["UserEmail"].ToString();
+
+                            // Debug: Log the parameters
+                            System.Diagnostics.Debug.WriteLine(lblUserName.InnerText);
+                            System.Diagnostics.Debug.WriteLine(lblUserPhone.InnerText);
+                            System.Diagnostics.Debug.WriteLine(lblUserEmail.InnerText);
+
                             // Display payment mode
                             string paymentMode = dt.Rows[0]["PaymentMode"].ToString().ToUpper();
                             string cardNumber = reader["CardNo"].ToString();
-                            lblPaymentMode.Text = "Payment Mode: " + paymentMode;
+                            lblPaymentMode.Text = paymentMode;
 
                             if (paymentMode == "CARD")
                             {
-                                lblPaymentMode.Text = "Payment Mode: <br />CREDIT CARD ****" + cardNumber.Substring(cardNumber.Length - 4);
+                                lblPaymentMode.Text = "CARD ****" + cardNumber.Substring(cardNumber.Length - 4);
                             }
 
                             // Display order date
                             DateTime orderDate = Convert.ToDateTime(dt.Rows[0]["OrderDate"]);
-                            lblOrderDate.Text = "Date: " + orderDate.ToString("dd-MM-yyyy");
+                            lblOrderDate.Text = orderDate.ToString("dd-MM-yyyy");
 
                             // Calculate and display grand total
                             double totalAmount = Convert.ToDouble(dt.Compute("SUM(TotalPrice)", string.Empty));
-                            lblGrandTotal.Text = "Amount: ₹" + totalAmount.ToString("0.00");
+                            lblGrandTotal.Text = totalAmount.ToString("0.00");
 
                             // Bind order items to all repeater controls using a loop
-                            List<Repeater> repeaters = new List<Repeater> { rOrderItem1, rOrderItem2, rOrderItem5 };
+                            List<Repeater> repeaters = new List<Repeater> { rOrderItem1, rOrderItem2, rOrderItem4, rOrderItem5 };
                             foreach (Repeater repeater in repeaters)
                             {
                                 repeater.DataSource = dt;

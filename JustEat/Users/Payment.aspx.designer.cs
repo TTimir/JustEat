@@ -186,6 +186,33 @@ namespace JustEat.Users
         protected global::System.Web.UI.WebControls.LinkButton lbCardSubmit;
 
         /// <summary>
+        /// txtCODName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCODName;
+
+        /// <summary>
+        /// rfvCodName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCodName;
+
+        /// <summary>
+        /// revCodName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revCodName;
+
+        /// <summary>
         /// txtCODAddress control.
         /// </summary>
         /// <remarks>

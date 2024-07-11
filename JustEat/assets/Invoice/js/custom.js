@@ -40,7 +40,7 @@
           canvasImageHeight
         );
       }
-      pdf.save('digital-invoico.pdf');
+      pdf.save('order-invoice.pdf');
     });
   });
 })(jQuery); // End of use strict

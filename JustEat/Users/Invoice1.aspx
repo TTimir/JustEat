@@ -102,17 +102,15 @@
                         <!--Invoice owner name start here -->
                         <div class="invoice-owner-conte-wrap pt-20">
                             <div class="invo-to-wrap">
-                                <%--<div class="invoice-to-content">
-                                <p class="font-md color-light-black">Invoice To:</p>
-                                <h1 class="font-lg color-yellow pt-10" id="lblUserName">
-                                    Rohan Dalal</h1>
-                                <p class="font-md-grey color-grey pt-10">
-                                    Phone: <span id="lblUserPhone">
-                                        +91 123 456 7897</span><br />
-                                    Email: <span id="lblUserEmail">
-                                        rohan@gmail.com</span>
-                                </p>
-                            </div>--%>
+                                <div class="invoice-to-content">
+                                    <p class="font-md color-light-black">Invoice To:</p>
+                                    <h1 class="font-lg color-yellow pt-10" id="lblUserName" runat="server"></h1>
+                                    <p class="font-md-grey color-grey pt-10">
+                                        Phone: <span id="lblUserPhone" runat="server"></span>
+                                        <br />
+                                        Email: <span id="lblUserEmail" runat="server"></span>
+                                    </p>
+                                </div>
                             </div>
                             <div class="invo-pay-to-wrap">
                                 <div class="invoice-pay-content">
@@ -187,31 +185,42 @@
                         </div>
                         <!--Invoice additional info end here -->
                         <!--Payment detail table start here -->
-                        <div class="rest-payment-bill">
+                        <div class="rest-payment-bill pt-20">
                             <div class="payment-wrap payment-wrap-res p-0">
                                 <table class="res-pay-table">
                                     <tbody>
                                         <tr class="table-bg">
-                                            <%--<td class="font-md color-light-black pay-type">Payment Details:</td>--%>
-                                            <td class="font-md-grey color-grey pay-type">
+                                            <td class="font-md color-light-black pay-type" style="padding: 15px;">Payment Details:</td>
+                                            <td style="padding: 15px;">
                                                 <div>
-                                                    <asp:Label ID="lblPaymentMode" runat="server" CssClass="font-md color-light-black pay-type"></asp:Label>
+                                                    <asp:Label ID="lblPaymentMode" runat="server" CssClass="font-md-grey color-grey"></asp:Label>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <%--<td class="font-md color-light-black pay-type">Date:</td>--%>
-                                            <td class="font-md-grey color-grey pay-type">
-                                                <div>
-                                                    <asp:Label ID="lblOrderDate" runat="server" CssClass="font-md color-light-black pay-type"></asp:Label>
-                                                </div>
+                                            <td class="font-md color-light-black pay-type" style="padding: 15px;">Order Number (Last 4 Digits):</td>
+                                            <td class="font-md-grey color-grey" style="padding: 15px;">
+                                                <asp:Repeater ID="rOrderItem4" runat="server">
+                                                    <ItemTemplate>
+                                                        <%# Eval("OrderNo").ToString().Length > 4 ? Eval("OrderNo").ToString().Substring(Eval("OrderNo").ToString().Length - 4) : Eval("OrderNo").ToString() %>
+                                                        <asp:Literal runat="server" Text='<%# Container.ItemIndex < (Container.Parent as Repeater).Items.Count - 1 ? "- " : ", " %>'></asp:Literal>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
                                             </td>
                                         </tr>
                                         <tr class="table-bg">
-                                            <%--<td class="font-md color-light-black pay-type">Amount:</td>--%>
-                                            <td class="font-md-grey color-grey pay-type">
+                                            <td class="font-md color-light-black pay-type" style="padding: 15px;">Date:</td>
+                                            <td style="padding: 15px;">
                                                 <div>
-                                                    <asp:Label ID="lblGrandTotal" runat="server" CssClass="font-md color-light-black pay-type"></asp:Label>
+                                                    <asp:Label ID="lblOrderDate" runat="server" CssClass="font-md-grey color-grey"></asp:Label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-md color-light-black pay-type" style="padding: 15px;">Amount(₹):</td>
+                                            <td style="padding: 15px;">
+                                                <div>
+                                                    <asp:Label ID="lblGrandTotal" runat="server" CssClass="font-md-grey color-grey"></asp:Label>
                                                 </div>
                                             </td>
                                         </tr>
@@ -231,6 +240,25 @@
                         <div class="res-contact res-bottom">
                             <p class="font-sm color-light-black text-center">Thank you for choosing to dine with us. See you soon 🙂</p>
                         </div>
+
+                        <!--Note content start here -->
+                        <div class="invo-note-wrap">
+                            <div class="note-title">
+                                <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_8_240)">
+                                        <path d="M14 3V7C14 7.26522 14.1054 7.51957 14.2929 7.70711C14.4804 7.89464 14.7348 8 15 8H19" stroke="#12151C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M17 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H14L19 8V19C19 19.5304 18.7893 20.0391 18.4142 20.4142C18.0391 20.7893 17.5304 21 17 21Z" stroke="#12151C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M9 7H10" stroke="#12151C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M9 13H15" stroke="#12151C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M13 17H15" stroke="#12151C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </g><defs><clippath id="clip0_8_240"><rect width="24" height="24" fill="white"></rect>
+                                    </clippath>
+                                    </defs></svg>
+                                <span class="font-md color-light-black">Note:</span>
+                            </div>
+                            <h2 class="font-md-grey color-grey note-desc">This is computer generated receipt and does not require physical signature.</h2>
+                        </div>
+                        <!--Note content end here -->
                     </div>
                 </section>
                 <!--Invoice content end here -->

@@ -126,7 +126,7 @@ namespace JustEat.Admin
             txtQuantity.Text = string.Empty;
             txtPrice.Text = string.Empty;
             ddlCategories.ClearSelection();
-            cbIsActive.Enabled = false;
+            cbIsActive.Checked = false;
             hdnId.Value = "0";
             btnAddOrUpdate.Text = "Add";
             imgProduct.ImageUrl = string.Empty;

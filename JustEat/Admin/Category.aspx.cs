@@ -118,7 +118,7 @@ namespace JustEat.Admin
         private void clear()
         {
             txtName.Text = string.Empty;
-            cbIsActive.Enabled = false;
+            cbIsActive.Checked = false;
             hdnId.Value = "0";
             btnAddOrUpdate.Text = "Add";
             imgCategory.ImageUrl = string.Empty;

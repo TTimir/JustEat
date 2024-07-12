@@ -129,23 +129,8 @@ namespace JustEat.Users
 
                 while (dr.Read())
                 {
-                    if (dr["ProductId"] != DBNull.Value)
-                    {
-                        productId = (int)dr["ProductId"];
-                    }
-                    else
-                    {
-                        productId = 0;
-                    }
-
-                    if (dr["Quantity"] != DBNull.Value)
-                    {
-                        quantity = (int)dr["Quantity"];
-                    }
-                    else
-                    {
-                        quantity = 0;
-                    }
+                    productId = (int)dr["ProductId"];
+                    quantity = (int)dr["Quantity"];
 
                     // Logging values for debugging
                     System.Diagnostics.Debug.WriteLine($"ProductId: {productId}, Quantity: {quantity}");

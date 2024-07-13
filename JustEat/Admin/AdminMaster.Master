@@ -292,7 +292,7 @@
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li>
                                         <a href="Category.aspx">
-                                            <span class="pcoded-micon"><i class="ti-layout-menu-v"></i><b>FC</b></span>
+                                            <span class="pcoded-micon"><i class="icofont icofont-muffin"></i><b>FC</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Categories</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
@@ -303,7 +303,7 @@
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li>
                                         <a href="Product.aspx">
-                                            <span class="pcoded-micon"><i class="ti-package"></i><b>FC</b></span>
+                                            <span class="pcoded-micon"><i class="icofont icofont-fast-food"></i><b>FC</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Products</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>

@@ -34,7 +34,7 @@
                                     <h4><%Response.Write(Session["product"]); %></h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">
-                                            <a href="Product.aspx"><i class="text-c-pink f-16 icofont icofont-eye m-r-10"></i>View Details</a>
+                                            <a href="Product.aspx"><i class="text-c-pink f-16 icofont icofont-eye-alt m-r-10"></i>View Details</a>
                                         </span>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@
                                     <h4><%Response.Write(Session["user"]); %></h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">
-                                            <a href="Users.aspx"><i class="text-c-blue f-16 icofont icofont-eye m-r-10"></i>View Details</a>
+                                            <a href="Users.aspx"><i class="text-c-blue f-16 icofont icofont-eye-alt m-r-10"></i>View Details</a>
                                         </span>
                                     </div>
                                 </div>
@@ -124,7 +124,7 @@
                             <div class="card widget-card-1">
                                 <div class="card-block-small">
                                     <i class="icofont icofont-support-faq bg-c-lite-green card1-icon"></i>
-                                    <span class="text-c-lite-green f-w-600">Feedbacks</span>
+                                    <span class="text-c-lite-green f-w-600">Feedback / Query</span>
                                     <h4><%Response.Write(Session["contact"]); %></h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">

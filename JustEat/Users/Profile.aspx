@@ -152,7 +152,7 @@
                                                                 <%# string.IsNullOrEmpty(Eval("CardNo").ToString()) ? "" : "<strong>Card No:</strong> " + Eval("CardNo") %>
                                                             </div>
                                                             <div class="col-2 text-right">
-                                                                <a href="Invoice1.aspx?id=<%# Eval("PaymentId") %>" class="btn btn-info btn-sm">
+                                                                <a href="Invoice1.aspx?id=<%# Eval("PaymentId") %>" target="_blank" class="btn btn-info btn-sm">
                                                                     <i class="fa fa-download mr-2"></i>Invoice</a>
                                                             </div>
                                                         </div>

@@ -100,5 +100,37 @@ namespace JustEat
             }
         }
 
+        public class DashboardCount
+        {
+            SqlConnection conn;
+            SqlCommand cmd;
+            SqlDataAdapter adp;
+            DataTable dt;
+            SqlDataReader sdr;
+            public int Count(string name)
+            {
+                int count = 0;
+                conn = new SqlConnection(Connection.GetConnectionString());
+                cmd = new SqlCommand("Dashboard", conn);
+                cmd.Parameters.AddWithValue("@Action", name);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                sdr = cmd.ExecuteReader();
+                while (sdr.Read()) 
+                {
+                    if (sdr[0] == DBNull.Value)
+                    {
+                        count = 0;
+                    }
+                    else
+                    {
+                        count = Convert.ToInt32(sdr[0]);
+                    }
+                }
+                sdr.Close();
+                conn.Close();
+                return count;
+            }
+        }
     }
 }

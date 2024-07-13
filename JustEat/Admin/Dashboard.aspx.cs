@@ -18,6 +18,18 @@ namespace JustEat.Admin
                 {
                     Response.Redirect("../Users/Login.aspx");
                 }
+                else
+                {
+                    Connection.DashboardCount dashboard = new Connection.DashboardCount();
+                    Session["category"] = dashboard.Count("CATEGORY");
+                    Session["product"] = dashboard.Count("PRODUCT");
+                    Session["order"] = dashboard.Count("ORDER");
+                    Session["delivered"] = dashboard.Count("DELIVERED");
+                    Session["pending"] = dashboard.Count("PENDING");
+                    Session["user"] = dashboard.Count("USER");
+                    Session["soldamount"] = dashboard.Count("SOLDAMOUNT");
+                    Session["contact"] = dashboard.Count("CONTACT");
+                }
             }
         }
     }

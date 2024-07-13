@@ -135,7 +135,7 @@
                                         <!-- Order History Starts -->
                                         <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
 
-                                            <asp:Repeater ID="rPurchaseHistory" runat="server" OnItemDataBound="rPurchaseHistory_ItemDataBound" OnItemCommand="rPurchaseHistory_ItemCommand">
+                                            <asp:Repeater ID="rPurchaseHistory" runat="server" OnItemDataBound="rPurchaseHistory_ItemDataBound">
                                                 <ItemTemplate>
                                                     <div class="container my-3 p-3 border rounded" style="background-color: #f8f9fa;">
                                                         <div class="row py-2" style="background-color: #e9ecef;">
@@ -143,10 +143,10 @@
                                                                 <span class="badge badge-pill badge-dark text-white mr-2">
                                                                     <%# Eval("SrNo") %> 
                                                                 </span>
-                                                                <strong>Order Date: </strong> <%# Eval("OrderDate") %>
+                                                                <strong>Order Date: </strong><%# Eval("OrderDate") %>
                                                             </div>
                                                             <div class="col-3 d-flex align-items-center">
-                                                                <strong>Pay Mode: </strong> <%# Eval("PaymentMode").ToString() == "cod" ? "Cash On Delivery" : Eval("PaymentMode").ToString().ToUpper() %>
+                                                                <strong>Pay Mode: </strong><%# Eval("PaymentMode").ToString() == "cod" ? "Cash On Delivery" : Eval("PaymentMode").ToString().ToUpper() %>
                                                             </div>
                                                             <div class="col-3 d-flex align-items-center">
                                                                 <%# string.IsNullOrEmpty(Eval("CardNo").ToString()) ? "" : "<strong>Card No:</strong> " + Eval("CardNo") %>
@@ -167,7 +167,7 @@
                                                                             <th>Unit Price</th>
                                                                             <th>Qty</th>
                                                                             <th>Total Price</th>
-                                                                            <th>Order</th>
+                                                                            <th>Order No</th>
                                                                             <th>Status</th>
                                                                         </tr>
                                                                     </thead>
@@ -191,14 +191,13 @@
                                                                     </td>
                                                                     <td>
                                                                         <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("Status") %>'
-                                                                            CssClass='<%# Eval("Status").ToString() == "Prepared" ? "badge badge-success" : "badge badge-warning" %>'></asp:Label>
+                                                                            CssClass='<%# Eval("Status").ToString() == "Prepared" ? "badge badge-success" : (Eval("Status").ToString() == "Processing" ? "badge badge-secondary" : "badge badge-warning") %>'></asp:Label>
                                                                     </td>
                                                                 </tr>
                                                             </ItemTemplate>
                                                             <FooterTemplate>
                                                                 </tbody>
                                                                 </table>
-                                                           
                                                             </FooterTemplate>
                                                         </asp:Repeater>
                                                     </div>
@@ -210,17 +209,17 @@
                                             </asp:Repeater>
 
                                         </div>
-                                    <!-- Order History Ends -->
+                                        <!-- Order History Ends -->
+
+                                    </div>
 
                                 </div>
-
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         </div>
     </section>

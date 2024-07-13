@@ -140,16 +140,11 @@ namespace JustEat.Users
             {
                 if (ListItemType == ListItemType.Footer)
                 {
-                    var footer = new LiteralControl("<tr><td><b>Hungry! Why not order your favourite food for you.</b><a href='Menu.aspx' class='badge badge-info ml-2'>Click to Order Your Favourite Food</a></td></tr><t/body></table>");
+                    var footer = new LiteralControl("<tr><td><b>Hungry! Why not order your favourite food for you.</b><a href='Menu.aspx' class='badge badge-info ml-2'>Click to Order</a></td></tr><t/body></table>");
                     container.Controls.Add(footer);
                 }
             }
         }
 
-
-        protected void rPurchaseHistory_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-
-        }
     }
 }
